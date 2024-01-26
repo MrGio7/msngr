@@ -1,5 +1,6 @@
 import React, { FC, ReactNode, createContext, useContext, useState } from "react";
 import { trpc } from "../utils/trpc";
+import { WS_HOST } from "../../../../config/base";
 
 type Message = {
   action: string;
@@ -19,7 +20,7 @@ export const WSProvider: FC<{ children: ReactNode }> = ({ children }) => {
   trpc.user.wsTicket.useQuery(undefined, {
     enabled: !connected,
     onSuccess(ticket) {
-      const ws = new WebSocket(`wss://6fmknljqm4.execute-api.eu-west-1.amazonaws.com/prod?ticket=${ticket}`);
+      const ws = new WebSocket(`wss://${WS_HOST}?ticket=${ticket}`);
 
       ws.onopen = () => {
         setConnected(true);

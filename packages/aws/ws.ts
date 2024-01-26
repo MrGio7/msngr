@@ -1,8 +1,9 @@
 import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi";
+import { WS_HOST } from "config/base";
 
 const client = new ApiGatewayManagementApiClient({
   region: "eu-west-1",
-  endpoint: "https://6fmknljqm4.execute-api.eu-west-1.amazonaws.com/prod",
+  endpoint: `https://${WS_HOST}`,
 });
 
 export async function newMessageNotify(args: { connectionIds: string[]; conversationId: number }) {
