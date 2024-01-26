@@ -14,9 +14,7 @@
     "build": "concurrently \"npm:build:*\"",
     "predeploy": "npm run build",
     "deploy": "cdk deploy MsngrStack --aws-profile root",
-    "dev:web": "npm run dev --prefix services/web",
-    "dev:server": "cdk synth HttpApiStack && sam local start-api -t cdk.out/HttpApiStack.template.json",
-    "dev": "concurrently \"npm:dev:*\""
+    "dev": "npm run dev --prefix services/web"
   },
   "prisma": {
     "schema": "packages/db/prisma/schema.prisma"
