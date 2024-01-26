@@ -5,6 +5,7 @@
     "msngr": "bin/msngr.js"
   },
   "scripts": {
+    "postinstall": "npm ci --prefix services/web",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
     "build:web": "npm run build --prefix services/web",
